@@ -1,0 +1,16 @@
+.py ext is only needed for when it is imported
+
+.pyc is created only when the file is imported, 
+the start file's binary is in PVM and dispose when close
+
+_X variable will not be imported using "from xx import *"
+
+__all__ = [func1, var1] can make all in the list public when use from XX import *
+
+import steps:
+1.search the module, from python lib to program main folder
+2.find pyc
+	2.1.find only py, compile it to pyc
+	2.2.find only pyc, ok
+	2.3.find both py and pyc, compare the timestamp, equal no compile, or compile
+3.load the pyc, and execute in PVM

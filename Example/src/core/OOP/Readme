@@ -1,0 +1,10 @@
+所有类默认从object继承，允许多继承
+
+创建实例时没有用new关键字（Python没有new关键字）
+
+函数是__class__的一个属性，可用hasattr(cls, 'func_name')来判断cls类是否有某函数
+
+继承自不可变类型，使用def __new__类函数，__new__比__init__先执行
+class MyFloat(float):
+	def __new__(cls, val):
+		return super(MyFloat, cls).__new__(cls, round(val, 2))

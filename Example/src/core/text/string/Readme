@@ -1,0 +1,4 @@
+object
+	basestring
+		str
+		unicode

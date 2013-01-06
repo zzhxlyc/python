@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}user/add{% endblock %}
+{% block content %}
+<form action="/user/doAdd" enctype="multipart/form-data" method="post">
+	{% csrf_token %}
+	<input type="text" name="name"><br>
+	<select name='gender'>
+		<option value="0">Male</option>
+		<option value="1">Female</option>
+	</select><br>
+	<input type="file" name='photo'><br>
+	<input type="submit" value="submit">
+	<span class="{% cycle '1' '2' %}">...</span>
+	<span class="{% cycle '1' '2' %}">...</span>
+</form>
+{% endblock %}

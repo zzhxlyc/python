@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}user/add{% endblock %}
+{% block content %}
+
+{% for user in user_list %}
+	<span class="{% cycle 'row1' 'row2' %}">{{user.name}}</span><br>
+{% endfor %}
+
+{% endblock %}

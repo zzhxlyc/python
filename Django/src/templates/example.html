@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}title{% endblock %}
+
+{% include "foo/bar.html" %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+
+{% for story in story_list %}
+<h2>
+  <a href="{{ story.get_absolute_url }}">
+	{% if story|length > 1 %}
+    	Number of story: {{ story|length }}
+	{% else %}
+    	No athletes.
+	{% endif %}
+    {{ story.headline }}
+  </a>
+  {# comments #}
+</h2>
+{% empty %}
+<h2>oh, it is empty</h2>
+{% endfor %}
+
+forloop.counter		第几次，从1开始
+forloop.counter0	从0开始
+forloop.revcounter	反向
+forloop.revcounter0
+forloop.first	True if this is the first time
+forloop.last	True if this is the last time
+forloop.parentloop
+
+{% endblock %}
+
+{% ifequal user.id comment.user_id %}
+    ...
+{% endifequal %}
+
+{{ value|default:"nothing" }}
+{{ value|length }}	返回value长度，可为string或list
+{{ value|striptags }}	按HTML输出，而不转义
+{{ value|add:"2" }}
+{{ value|addslashes }}	If value is "I'm using Django", the output will be "I\'m using Django".
+{{ value|capfirst }}
+{{ value|center:"15" }}	If value is "Django", the output will be "     Django    ".
+{{ value|date:"D d M Y" }}
+{{ value|filesizeformat }}	If value is 123456789, the output would be 117.7 MB
+{{ value|floatformat:3 }}
+{{ value|join:" // " }}	If value is the list ['a', 'b', 'c'], the output will be the string "a // b // c".
+{{ value|ljust:"10" }}	If value is Django, the output will be "Django    ".
+{{ value|lower }}
